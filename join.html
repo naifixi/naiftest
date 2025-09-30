@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انضم لنا | ملاكمة بايثون</title>
+
+    <style>
+        :root {
+            --bg-dark: #0D0D0D;
+            --primary: #E50914;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .join {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 30px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .join h1 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .join p {
+            margin-bottom: 25px;
+        }
+
+        .plans {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .plan {
+            background: #222;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            width: 250px;
+        }
+
+        .plan h3 {
+            color: var(--gold);
+        }
+
+        .plan p {
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+
+        .plan .price {
+            font-size: 1.3rem;
+            margin: 10px 0;
+            color: var(--primary);
+        }
+
+        .plan a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .plan a:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- استدعاء الهيدر -->
+    <div id="header"></div>
+
+    <section class="join">
+        <h1>💪 انضم إلى ملاكمة بايثون</h1>
+        <p>اختر الخطة المناسبة لك وابدأ رحلة القوة واللياقة مع أفضل المدربين في السعودية.</p>
+
+        <div class="plans">
+            <div class="plan">
+                <h3>الخطة الشهرية</h3>
+                <p>تمارين يومية + متابعة شخصية</p>
+                <div class="price">300 ريال</div>
+                <a href="subscribe.html?plan=monthly">اشترك الآن</a>
+            </div>
+
+            <div class="plan">
+                <h3>الخطة نصف السنوية</h3>
+                <p>توفير 15% + تجهيز للبطولات</p>
+                <div class="price">1500 ريال</div>
+                <a href="subscribe.html?plan=half">اشترك الآن</a>
+            </div>
+
+            <div class="plan">
+                <h3>الخطة السنوية</h3>
+                <p>توفير 25% + مزايا خاصة</p>
+                <div class="price">2800 ريال</div>
+                <a href="subscribe.html?plan=yearly">اشترك الآن</a>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-home">⬅️ العودة إلى الرئيسية</a>
+    </section>
+
+    <!-- استدعاء الفوتر -->
+    <div id="footer"></div>
+
+    <script>
+        // تحميل الهيدر والفوتر
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("header.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("header").innerHTML = data)
+                .catch(err => console.error("خطأ في تحميل الهيدر:", err));
+
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer").innerHTML = data)
+                .catch(err => console.error("خطأ في تحميل الفوتر:", err));
+        });
+    </script>
+
+</body>
+</html>

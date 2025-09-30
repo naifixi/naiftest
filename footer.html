@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فوتر | ملاكمة بايثون</title>
+
+    <style>
+        :root {
+            --bg-dark: #0D0D0D;
+            --primary: #E50914;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+        }
+
+        /* الفوتر */
+        .footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #111;
+            border-top: 2px solid var(--primary);
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            margin: 0 6px;
+            transition: 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--primary);
+        }
+
+        /* أيقونات التواصل */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 8px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © 2025 ملاكمة بايثون</p>
+        <p>تابعنا على:</p>
+        <div class="social-icons">
+            <a href="#" title="فيسبوك">🌐</a>
+            <a href="#" title="انستجرام">📸</a>
+            <a href="#" title="تويتر">🐦</a>
+            <a href="mailto:info@boxing.com" title="راسلنا">✉️</a>
+        </div>
+    </footer>
+
+    <script>
+        // مثال: طباعة في الكونسول عند النقر على أي رابط تواصل
+        document.querySelectorAll(".social-icons a").forEach(icon => {
+            icon.addEventListener("click", () => {
+                console.log("تم النقر على: " + icon.getAttribute("title"));
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اشتراك جديد | ملاكمة بايثون</title>
+
+    <style>
+        :root {
+            --bg-dark: #0D0D0D;
+            --primary: #E50914;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .subscribe {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 30px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        .subscribe h1 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .subscribe form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .subscribe input, 
+        .subscribe select {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .subscribe button {
+            padding: 12px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .subscribe button:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- استدعاء الهيدر -->
+    <div id="header"></div>
+
+    <section class="subscribe">
+        <h1>📝 نموذج الاشتراك</h1>
+        <p>املأ بياناتك وسيقوم فريقنا بالتواصل معك لتفعيل الاشتراك.</p>
+
+        <form>
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <input type="tel" placeholder="رقم الجوال" required>
+            
+            <select required>
+                <option value="">اختر الخطة</option>
+                <option value="monthly">الخطة الشهرية - 300 ريال</option>
+                <option value="half">الخطة نصف السنوية - 1500 ريال</option>
+                <option value="yearly">الخطة السنوية - 2800 ريال</option>
+            </select>
+
+            <button type="submit">تأكيد الاشتراك</button>
+        </form>
+
+        <a href="join.html" class="back-home">⬅️ العودة إلى صفحة الانضمام</a>
+    </section>
+
+    <!-- استدعاء الفوتر -->
+    <div id="footer"></div>
+
+    <script>
+        // تحميل الهيدر والفوتر
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("header.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("header").innerHTML = data)
+                .catch(err => console.error("خطأ في تحميل الهيدر:", err));
+
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer").innerHTML = data)
+                .catch(err => console.error("خطأ في تحميل الفوتر:", err));
+
+            // قراءة الخطة المختارة من الرابط
+            const params = new URLSearchParams(window.location.search);
+            const plan = params.get("plan");
+            if (plan) {
+                document.querySelector("select").value = plan;
+            }
+        });
+    </script>
+
+</body>
+</html>

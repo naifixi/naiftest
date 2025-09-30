@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملاكمة بايثون</title>
+
+    <style>
+        /* الألوان */
+        :root {
+            --bg-dark: #0D0D0D;
+            --primary: #E50914;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* البانر مع الفيديو */
+        .hero {
+            position: relative;
+            height: 50vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top:0;left:0;right:0;bottom:0;
+            background: rgba(0,0,0,0.6); /* طبقة عتمة فوق الفيديو */
+            z-index: 2;
+        }
+
+        .hero .intro {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* قسم لماذا تختارنا */
+        .about {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--primary);
+            min-width: 200px;
+        }
+
+        /* دعوة للتسجيل */
+        .cta {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--primary);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- استدعاء الهيدر -->
+    <div id="header"></div>
+
+    <!-- المحتوى الرئيسي -->
+    <main id="home" class="hero">
+        <!-- الفيديو كخلفية -->
+        <video autoplay muted loop playsinline>
+            <source src="mmmm.mp4" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+
+        <section class="intro">
+            <h1>مرحباً بك في <span>ملاكمة العمالقه</span></h1>
+            <p>أفضل مركز لتدريب الملاكمة في السعودية، بإشراف مدربين محترفين وأحدث المعدات.</p>
+            <!-- تعديل الرابط هنا -->
+            <a href="join.html" class="btn">انضم الآن</a>
+        </section>
+    </main>
+
+    <section id="about" class="about">
+        <h2>لماذا تختارنا؟</h2>
+        <div class="features">
+            <div class="feature">🥊 تدريب احترافي</div>
+            <div class="feature">💪 خطط مخصصة للياقة</div>
+            <div class="feature">🏆 تجهيز للمباريات</div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>ابدأ رحلتك اليوم</h2>
+        <p>انضم إلينا وطور مهاراتك مع أفضل فريق ملاكمة في المملكة.</p>
+        <!-- تعديل الرابط هنا -->
+        <a href="join.html" class="btn">سجل الآن</a>
+    </section>
+
+    <!-- استدعاء الفوتر -->
+    <div id="footer"></div>
+
+    <script>
+        // تحميل الهيدر والفوتر من قوالب منفصلة
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("header.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("header").innerHTML = data)
+                .catch(err => console.error("خطأ في تحميل الهيدر:", err));
+
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer").innerHTML = data)
+                .catch(err => console.error("خطأ في تحميل الفوتر:", err));
+
+            console.log("مرحباً بك في موقع ملاكمة بايثون 🥊");
+        });
+    </script>
+
+</body>
+</html>
